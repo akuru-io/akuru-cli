@@ -1,22 +1,18 @@
 from click.utils import echo
 import typer
-import os
-import shutil
-import sys
 from lib.install import install_font
+from lib.uninstall import uninstall_font
 
 app = typer.Typer()
 
 @app.command()
-def install():
-    # download the font from the remote
-    # install the font into the system
-    install_font()
+def install(font_name: str):
+    install_font(font_name)
     
 @app.command()
-def uninstall():
-    # uninstall the font from the system
-    typer.echo("Font uninstall started")
+def uninstall(font_name: str):
+    uninstall_font(font_name)
+
 
 @app.command()
 def update():
